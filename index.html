@@ -1,396 +1,238 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Curso de Vídeos Curtos com IA – Landing Moderna</title>
-  <meta name="description" content="Landing page moderna para curso de vídeos curtos com IA. Estrutura limpa, acessível e sem scripts de rastreamento." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fábrica de Comissões | Links</title>
+  <meta name="description" content="Aprenda estratégias REAIS para destravar suas vendas na Shopee, Amazon, Mercado Livre, TikTok Shop e Shein.">
   <style>
-    :root {
-      --bg: #0b0c10;
-      --surface: #121318;
-      --surface-2: #191b22;
-      --text: #eef2f7;
-      --muted: #9aa3b2;
-      --primary: #6ee7b7; /* green-mint */
-      --primary-600: #34d399;
-      --accent: #60a5fa; /* blue */
-      --danger: #f87171;
-      --radius: 16px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --max: 1150px;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
+    * {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background-image: 
-        radial-gradient(800px 500px at 50% 0%, rgba(96,165,250,.12), transparent),
-        radial-gradient(800px 500px at 50% 100%, rgba(110,231,183,.10), transparent);
-      background-attachment: fixed;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* Alternância de fundo por seção */
-    section:nth-of-type(even) {
-      background: var(--surface);
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0a0a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 60px;
+      color: #fff;
     }
-    section:nth-of-type(odd) {
-      background: var(--surface-2);
+
+    /* Fundo com gradiente sutil */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, #1a1040 0%, #0a0a1a 60%);
+      z-index: -1;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-    .container { width: min(var(--max), 92%); margin: 0 auto; }
-
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: .6rem; padding: 14px 20px; border-radius: 999px; font-weight: 700;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #0a0a0a; box-shadow: var(--shadow); border: none; cursor: pointer;
-      transition: transform .12s ease, filter .2s ease;
+    .profile {
+      text-align: center;
+      margin-bottom: 28px;
     }
-    .btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
-    .btn.ghost { background: transparent; color: var(--text); border: 1px solid #2b2f39; }
-    .tag { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 
-    /* Header / Hero */
-    header {
-      position: relative; isolation: isolate;
-      padding: 32px 0 64px; backdrop-filter: saturate(1.2);
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00e5cc;
+      box-shadow: 0 0 24px rgba(0, 229, 204, 0.35);
+      margin: 0 auto 16px;
+      display: block;
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .3px; }
-    .brand svg { width: 28px; height: 28px; }
-    .nav .actions { display: flex; gap: 10px; }
 
-    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: center; padding-top: 36px; }
-    .headline { font-size: clamp(2rem, 3.6vw, 3.4rem); line-height: 1.05; letter-spacing: -0.02em; }
-    .sub { color: var(--muted); margin: 14px 0 22px; font-size: clamp(1.02rem, 1.4vw, 1.15rem); }
-    .urgency { background: var(--danger); color:#fff; text-align:center; padding:12px; font-weight:600; }
-    .badges { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 26px; }
-    .badge { background: #0f1116; border: 1px solid #222633; padding: 8px 12px; border-radius: 999px; color: #cbd5e1; font-size: .9rem; }
-
-    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-            border: 1px solid #21242e; border-radius: var(--radius); box-shadow: var(--shadow); }
-
-    .video { position: relative; aspect-ratio: 16/9; overflow: hidden; }
-    .video > iframe, .video > video { width: 100%; height: 100%; border: 0; display: block; }
-    .video::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(600px 200px at 50% 0%, rgba(255,255,255,.06), transparent); }
-
-    /* Value / Pricing */
-    .value-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 22px; }
-    .value { padding: 14px; border-radius: 12px; border: 1px dashed #2b2f39; text-align: center; color: #d1d5db; }
-
-    .pricing { margin-top: 40px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: stretch; }
-    .price-card { padding: 22px; }
-    .price { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 800; }
-    .note { color: var(--muted); font-size: .95rem; }
-
-    /* Features / Curriculum */
-    section { padding: 72px 0; }
-    .section-title { font-size: clamp(1.6rem, 2.6vw, 2.2rem); margin: 0 0 22px; letter-spacing: -0.015em; }
-    .features { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .feature { padding: 18px; border: 1px solid #222633; border-radius: 14px; background: #0f1116; }
-    .feature h3 { margin: 10px 0 6px; font-size: 1.05rem; }
-    .feature p { color: var(--muted); font-size: .98rem; }
-    .i { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; }
-
-    /* Testimonials */
-    .testimonials { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .t-card { padding: 18px; }
-    .t-user { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-    .avatar { width: 40px; height: 40px; border-radius: 50%; background: #222632; }
-    .t-text { color: #d9e2ef; }
-
-    /* Gallery */
-    .gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
-    .gallery .thumb { aspect-ratio: 1; border-radius: 10px; background: #11131a; border: 1px solid #232736; }
-
-    /* About */
-    .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 26px; align-items: center; }
-
-    /* FAQ */
-    .faq { display: grid; gap: 10px; }
-    details { background: #0f1116; border: 1px solid #222633; border-radius: 12px; padding: 16px 18px; }
-    summary { cursor: pointer; font-weight: 700; }
-    details[open] { background: #0f1218; }
-
-    /* Footer */
-    footer { border-top: 1px solid #1f2430; padding: 28px 0 60px; color: var(--muted); }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .hero, .pricing, .about { grid-template-columns: 1fr; }
-      .features { grid-template-columns: repeat(2,1fr); }
-      .testimonials { grid-template-columns: repeat(2,1fr); }
-      .gallery { grid-template-columns: repeat(4,1fr); }
+    .title {
+      font-size: clamp(1rem, 3.5vw, 1.25rem);
+      font-weight: 600;
+      line-height: 1.45;
+      color: #00e5cc;
+      max-width: 420px;
+      margin: 0 auto 12px;
     }
-    @media (max-width: 640px) {
-      .value-grid { grid-template-columns: 1fr; }
-      .features, .testimonials { grid-template-columns: 1fr; }
-      .gallery { grid-template-columns: repeat(3,1fr); }
-      .headline { font-size: 1.9rem; }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 229, 204, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+      color: #00e5cc;
+    }
+
+    .social a:hover {
+      background: #00e5cc;
+      color: #0a0a1a;
+      transform: scale(1.08);
+    }
+
+    .social svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Lista de links */
+    .links {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #1a1540;
+      border: 1px solid rgba(0, 229, 204, 0.18);
+      border-radius: 14px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #00e5cc;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .link-btn:hover {
+      background: #221c55;
+      border-color: rgba(0, 229, 204, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 229, 204, 0.15);
+    }
+
+    .link-btn:active {
+      transform: translateY(0);
+    }
+
+    .link-thumb {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #0d0a24;
+    }
+
+    .link-text {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .link-arrow {
+      flex-shrink: 0;
+      opacity: 0.5;
+      font-size: 18px;
+      transition: opacity 0.2s;
+    }
+
+    .link-btn:hover .link-arrow {
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.3);
+      text-align: center;
+    }
+
+    footer a {
+      color: rgba(0, 229, 204, 0.5);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #00e5cc;
+    }
+
+    @media (max-width: 400px) {
+      .link-text {
+        font-size: 13px;
+      }
+      .link-thumb {
+        width: 46px;
+        height: 46px;
+      }
     }
   </style>
 </head>
-
 <body>
-  
-  <div class="urgency">⚡ Oferta disponível somente hoje – garanta sua vaga!</div>
-  <header>
-    <div class="container nav">
-      <div class="brand" aria-label="Marca">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l7.5 4.5v10.9L12 22l-7.5-4.6V6.5L12 2z" stroke="currentColor" stroke-width="1.3"/></svg>
-        <span>Shorts com IA</span>
-      </div>
-      <div class="actions">
-        <a class="btn ghost" href="#curriculo">Aulas</a>
-        <a class="btn" href="#comprar" aria-label="Ir para compra">Quero entrar</a>
-      </div>
+
+  <div class="profile">
+    <!-- Troque a foto abaixo pela sua se quiser -->
+    <img class="avatar" src="https://fabricadecomissoesfc.com.br/wp-content/uploads/2025/07/MENTORA.png" alt="Deborah Oliveira">
+    
+    <h1 class="title">
+      Aprenda estratégias REAIS para destravar suas vendas na Shopee, Amazon, Mercado Livre, TikTok Shop e Shein.
+    </h1>
+
+    <div class="social">
+      <!-- Instagram - troque pelo seu perfil se quiser -->
+      <a href="https://www.instagram.com/deboraholiveira__/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
     </div>
-    <div class="container hero">
-      <div>
-        <p class="tag">Curso prático • Acesso vitalício</p>
-        <h1 class="headline">Domine a criação de <em>vídeos curtos com IA</em> e monetize seu canal</h1>
-        <p class="sub">Aprenda a planejar, gerar roteiros e imagens com IA, editar com retenção, publicar com estratégia e monetizar — do zero ao avançado.</p>
-        <div class="badges">
-          <span class="badge">Passo a passo</span>
-          <span class="badge">Projetos reais</span>
-          <span class="badge">Templates inclusos</span>
-        </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="#comprar">Começar agora</a>
-          <a class="btn ghost" href="#video">Ver demonstração</a>
-        </div>
+  </div>
 
-        <div class="value-grid" aria-label="Diferenciais">
-          <div class="value">Atualizações contínuas</div>
-          <div class="value">Suporte em comunidade</div>
-          <div class="value">Garantia de 7 dias</div>
-        </div>
-      </div>
-     <div class="card video" id="video" aria-label="Vídeo de apresentação">
-        <iframe 
-            src="https://www.youtube.com/embed/9W8zCuRiAc0?start=1" 
-            title="Demonstração do curso" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
-    </div>
-    </div>
+  <div class="links">
 
-    <div class="container pricing" id="comprar">
-      <div class="card price-card">
-        <p class="tag">Oferta</p>
-        <h2 class="price">12× R$ 19,90</h2>
-        <p class="note">ou R$ 197,00 à vista • Acesso vitalício</p>
-        <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
-          <a class="btn" href="https://pay.kiwify.com.br/NizgIAY?afid=VCbbPINd">Garantir minha vaga</a>
-          <a class="btn ghost" href="#faq">Tirar dúvidas</a>
-        </div>
-      </div>
-      <div class="card price-card">
-        <p class="tag">O que está incluso</p>
-        <ul class="note" style="list-style:none; padding:0; display:grid; gap:8px;">
-          <li>✅ Aulas atualizadas sobre IAs populares (roteiro, imagem, voz, vídeo)</li>
-          <li>✅ Estratégias de retenção e publicação para Shorts</li>
-          <li>✅ Biblioteca de prompts e presets</li>
-          <li>✅ Comunidade + suporte por 6 meses</li>
-          <li>✅ Certificado de conclusão</li>
-        </ul>
-      </div>
-    </div>
-  </header>
+    <!-- 1. FÁBRICA DE COMISSÕES -->
+    <!-- TROQUE o href pelo seu link de afiliado ou pela página que criamos -->
+    <a class="link-btn" href="https://fabricadecomissoesfc.com.br/" target="_blank" rel="noopener">
+      <img class="link-thumb" src="https://fabricadecomissoesfc.com.br/wp-content/uploads/2025/07/engrenagem-300x300.png" alt="Fábrica de Comissões">
+      <span class="link-text">Fábrica de Comissões — Método completo para vender na Shopee, Amazon, TikTok Shop e mais (com ou sem aparecer)</span>
+      <span class="link-arrow">→</span>
+    </a>
 
-  <main>
-    <!-- Currículo / Features -->
-    <section id="curriculo" aria-labelledby="titulo-curriculo">
-      <div class="container">
-        <h2 id="titulo-curriculo" class="section-title">O que você vai aprender</h2>
-        <div class="features">
-          <div class="feature">
-            <div class="i" aria-hidden="true">✅</div>
-            <h3>Configuração do canal</h3>
-            <p>Do zero ao avançado: identidade, SEO básico, playlists e métricas essenciais.</p>
-          </div>
-          <div class="feature">
-            <div class="i" aria-hidden="true">✅</div>
-            <h3>Roteiro com IA</h3>
-            <p>Criação de roteiros e ganchos usando modelos generativos e frameworks de narrativa.</p>
-          </div>
-          <div class="feature">
-            <div class="i" aria-hidden="true">✅</div>
-            <h3>Imagens & vídeo com IA</h3>
-            <p>Gerando cenas, lip sync e narrações; fluxo eficiente para shorts.</p>
-          </div>
-          <div class="feature">
-            <div class="i" aria-hidden="true">✅</div>
-            <h3>Edição para retenção</h3>
-            <p>Timing, cortes, efeitos de 3s, overlays, SFX e legendas dinâmicas.</p>
-          </div>
-          <div class="feature">
-            <div class="i" aria-hidden="true">✅</div>
-            <h3>Publicação & analytics</h3>
-            <p>Horários, tags, testes A/B de thumb/título e leitura de métricas.</p>
-          </div>
-          <div class="feature">
-            <div class="i" aria-hidden="true">✅</div>
-            <h3>Monetização</h3>
-            <p>RPM, parcerias, catálogos e como multiplicar a receita com ativos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- 2. PACK FC -->
+    <!-- TROQUE o href pelo seu link de afiliado do Pack FC -->
+    <a class="link-btn" href="#" target="_blank" rel="noopener">
+      <img class="link-thumb" src="https://fabricadecomissoesfc.com.br/wp-content/uploads/2025/07/TEXTO-DOURADO-DEBORAH-150x150.png" alt="Pack FC">
+      <span class="link-text">Pack FC — Conteúdo pronto para stories e vídeos em massa | Com links para Shopee e Mercado Livre</span>
+      <span class="link-arrow">→</span>
+    </a>
 
-    <!-- Depoimentos -->
-    <section aria-labelledby="titulo-depoimentos">
-      <div class="container">
-        <h2 id="titulo-depoimentos" class="section-title">O que os alunos dizem</h2>
-        <div class="testimonials">
-          <article class="card t-card" aria-label="Depoimento de aluna">
-            <div class="t-user">
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <strong>Ana</strong>
-                <div class="tag">Criadora de conteúdo</div>
-              </div>
-            </div>
-            <p class="t-text">“Apliquei o módulo de retenção e dobrei as visualizações dos shorts em 2 semanas.”</p>
-          </article>
-          <article class="card t-card" aria-label="Depoimento de aluno">
-            <div class="t-user">
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <strong>Caio</strong>
-                <div class="tag">Editor</div>
-              </div>
-            </div>
-            <p class="t-text">“Os prompts prontos economizaram horas. Fluxo com IA ficou redondo.”</p>
-          </article>
-          <article class="card t-card" aria-label="Depoimento de aluno">
-            <div class="t-user">
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <strong>Julia</strong>
-                <div class="tag">YT Shorts</div>
-              </div>
-            </div>
-            <p class="t-text">“Já recuperei o investimento com 2 vídeos patrocinados.”</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    <!-- 3. LUMI -->
+    <!-- TROQUE o href pelo seu link de afiliado da Lumi -->
+    <a class="link-btn" href="https://www.lumiofertasinteligentes.shop/" target="_blank" rel="noopener">
+      <img class="link-thumb" src="https://www.lumiofertasinteligentes.shop/favicon.ico" alt="Lumi" onerror="this.src='https://fabricadecomissoesfc.com.br/wp-content/uploads/2025/07/engrenagem-150x150.png'">
+      <span class="link-text">LUMI — Ofertas com Inteligência | Automação para grupos de ofertas</span>
+      <span class="link-arrow">→</span>
+    </a>
 
-    <!-- Galeria / Provas sociais (slots vazios para você trocar) -->
-    <section aria-labelledby="titulo-galeria">
-      <div class="container">
-        <h2 id="titulo-galeria" class="section-title">Resultados & bastidores</h2>
-        <div class="gallery" aria-live="polite">
-          <div class="thumb" style="background-image: url('https://raw.githubusercontent.com/LuanFaria/AFILIADOS/main/Virais/imagens/5.webp'); background-size: cover; background-position: center;"></div>
-          <div class="thumb"><img src="https://github.com/LuanFaria/AFILIADOS/blob/main/Virais/imagens/4.webp?raw=true" alt="1" /></div>
-          <div class="thumb"><img src="https://github.com/LuanFaria/AFILIADOS/blob/main/Virais/imagens/3.webp?raw=true" alt="2" /></div>
-          <div class="thumb"><img src="https://github.com/LuanFaria/AFILIADOS/blob/main/Virais/imagens/2.webp?raw=true" alt="1" /></div>
-          <div class="thumb"><img src="https://github.com/LuanFaria/AFILIADOS/blob/main/Virais/imagens/1.jpeg?raw=true" alt="1" /></div>
+    <!-- 4. PACK AUTORAL -->
+    <!-- TROQUE o href pelo seu link de afiliado do Pack Autoral -->
+    <a class="link-btn" href="#" target="_blank" rel="noopener">
+      <img class="link-thumb" src="https://fabricadecomissoesfc.com.br/wp-content/uploads/2025/07/MENTORA.png" alt="Pack Autoral">
+      <span class="link-text">Pack Autoral — Perfeito para orgânico e tráfego pago</span>
+      <span class="link-arrow">→</span>
+    </a>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- Sobre o Instrutor -->
-    <section aria-labelledby="titulo-sobre">
-      <div class="container about">
-        <div class="card" style="padding:22px;">
-          <h2 id="titulo-sobre" class="section-title">Quem sou eu?</h2>
-          <p class="note">Sou Matheus Delalibera, tenho 30 anos e moro em Londrina, Paraná. Desde 2016, dedico minha carreira exclusivamente ao YouTube, plataforma onde construí minha trajetória profissional.
-
-Atualmente, sou proprietário de uma rede de 6 canais monetizados, que juntos somam mais de 3 milhões de inscritos. Minha especialidade é a criação de conteúdos usando inteligência artificial, mas ao longo dos anos já explorei diversas áreas, como gameplays e canais de dicas sobre o YouTube.
-
-Hoje, foco na produção de vídeos shorts, alcançando mais de 100 milhões de visualizações todos os meses. Minha missão é compartilhar o conhecimento adquirido nessa jornada e ensinar você a transformar sua paixão por vídeos em uma fonte de renda lucrativa.</p>
-          
-          
-          <ul class="note" style="list-style:none; padding:0; display:grid; gap:8px; margin-top:8px;">
-            <li>• +100M views/mês em shorts</li>
-            <li>• 6 canais monetizados</li>
-            <li>• Foco em conteúdo curto com IA</li>
-          </ul>
-        </div>
-        <div class="card video" aria-label="Vídeo do instrutor">
-            <iframe 
-                src="https://www.youtube.com/embed/r7QrgNCvPvo?start=27"
-                title="Demonstração do curso" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" aria-labelledby="titulo-faq">
-      <div class="container">
-        <h2 id="titulo-faq" class="section-title">Dúvidas frequentes</h2>
-        <div class="faq">
-          <details>
-            <summary>O acesso é vitalício?</summary>
-            <p class="note">Sim, você mantém acesso às aulas atualizadas. Materiais bônus podem ter prazos específicos, se indicado.</p>
-          </details>
-          <details>
-            <summary>Tem garantia?</summary>
-            <p class="note">Você pode testar por 7 dias. Se não curtir, é só solicitar reembolso dentro do prazo.</p>
-          </details>
-          <details>
-            <summary>Preciso saber editar antes?</summary>
-            <p class="note">Não. Há módulos iniciais e projetos guiados para começar do zero.</p>
-          </details>
-          <details>
-            <summary>Quais ferramentas de IA são usadas?</summary>
-            <p class="note">Exemplos: geração de texto, imagem, voz e vídeo. Substitua pelos nomes que você realmente usa.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-    <!-- CTA Final -->
-    <section aria-labelledby="cta-final">
-      <div class="container" style="text-align:center; margin-top:40px;">
-        <h2 id="cta-final" class="section-title">Pronto para começar?</h2>
-        <p class="sub">Garanta sua vaga agora e tenha acesso vitalício ao curso completo.</p>
-        <a class="btn" href="https://pay.kiwify.com.br/NizgIAY?afid=VCbbPINd" style="margin-top:16px;">Quero garantir minha vaga</a>
-      </div>
-    </section>
+  </div>
 
   <footer>
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-      <div>© <span id="year"></span> • Seu Curso de Shorts com IA</div>
-      <div style="display:flex; gap:12px; align-items:center;">
-        <a class="tag" href="#">Termos</a>
-        <a class="tag" href="#">Privacidade</a>
-        <a class="tag" href="https://pay.kiwify.com.br/NizgIAY?afid=VCbbPINd">Comprar</a>
-      </div>
-    </div>
+    <p>Copyright © 2026 · Fábrica de Comissões</p>
   </footer>
 
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Smooth scroll para links âncora (melhor UX)
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (id.length > 1) {
-          e.preventDefault();
-          document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
 </body>
 </html>
