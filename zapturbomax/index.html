@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZapTurboMAX® — Automação WhatsApp com IA e Proteção Anti-Bloqueio</title>
+  <meta name="description" content="Única ferramenta com IA para máxima proteção contra bloqueios. Envio em massa, ChatBot, maturador de chip e +35 funcionalidades. Acesso anual por R$97.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00c853;
+      --primary-dark: #00a844;
+      --primary-light: #69f0ae;
+      --bg: #0a0f1a;
+      --bg-card: #111827;
+      --bg-soft: #1a2332;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border: #1e293b;
+      --accent: #22c55e;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(0, 200, 83, 0.12);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10, 15, 26, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 1.35rem; color: white;
+    }
+    .logo-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--primary), #00e676);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #0a0f1a; font-weight: 900; font-size: 1.1rem;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 0.92rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 24px; border-radius: 12px;
+      font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #00e676);
+      color: #0a0f1a;
+      box-shadow: 0 4px 20px rgba(0, 200, 83, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 200, 83, 0.45);
+    }
+    .btn-outline {
+      background: transparent; color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover { background: rgba(0, 200, 83, 0.1); }
+    .btn-lg { padding: 16px 36px; font-size: 1.05rem; border-radius: 14px; }
+    .btn-block { width: 100%; }
+    .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; color: white; cursor: pointer; }
+
+    /* HERO */
+    .hero {
+      padding: 70px 0 90px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0, 200, 83, 0.12) 0%, transparent 60%);
+      overflow: hidden;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0, 200, 83, 0.12);
+      border: 1px solid rgba(0, 200, 83, 0.3);
+      color: var(--primary-light);
+      font-size: 0.85rem; font-weight: 600;
+      padding: 8px 18px; border-radius: 50px; margin-bottom: 24px;
+    }
+    .hero-badge span {
+      background: var(--primary); color: #0a0f1a;
+      font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 50px;
+    }
+    .hero { text-align: center; }
+    .hero h1 {
+      font-size: 3.4rem; font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.03em; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--primary), #69f0ae);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--text-muted);
+      max-width: 620px; margin: 0 auto 32px;
+    }
+    .hero-ctas {
+      display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 28px;
+    }
+    .hero-benefits {
+      display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;
+      font-size: 0.9rem; color: var(--text-muted);
+    }
+    .hero-benefits span { display: flex; align-items: center; gap: 6px; }
+    .hero-benefits svg { width: 18px; height: 18px; color: var(--primary); }
+
+    .hero-visual {
+      margin-top: 56px;
+      display: flex; justify-content: center;
+    }
+    .hero-mockup {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: var(--shadow-lg);
+      max-width: 720px; width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-mockup-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 12px; margin-bottom: 8px;
+    }
+    .hero-mockup-bar .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .hero-mockup-bar .dot.r { background: #ef4444; }
+    .hero-mockup-bar .dot.y { background: #eab308; }
+    .hero-mockup-bar .dot.g { background: #22c55e; }
+    .hero-mockup-bar .title {
+      flex: 1; text-align: center; font-size: 0.8rem; color: var(--text-light);
+    }
+    .mockup-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 16px;
+      background: linear-gradient(180deg, #0d1520 0%, #111827 100%);
+      border-radius: 10px;
+    }
+    .mockup-item {
+      background: rgba(0, 200, 83, 0.08);
+      border: 1px solid rgba(0, 200, 83, 0.15);
+      border-radius: 10px;
+      padding: 18px 10px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .mockup-item:hover { background: rgba(0, 200, 83, 0.15); border-color: var(--primary); }
+    .mockup-item .ico { font-size: 1.6rem; margin-bottom: 6px; }
+    .mockup-item .lbl { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+
+    /* STATS */
+    .stats {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;
+    }
+    .stat-item .number {
+      font-size: 2.4rem; font-weight: 800; color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+    .stat-item .label {
+      font-size: 0.8rem; font-weight: 600; color: var(--text-light);
+      text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 0; }
+    .section-label {
+      display: inline-block; font-size: 0.8rem; font-weight: 700;
+      color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 16px; line-height: 1.2;
+    }
+    .section-desc {
+      font-size: 1.1rem; color: var(--text-muted); max-width: 580px; margin-bottom: 48px;
+    }
+    .text-center { text-align: center; }
+    .text-center .section-desc { margin-left: auto; margin-right: auto; }
+
+    /* FEATURES ICONS */
+    .features-icons {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 64px;
+    }
+    .feat-icon-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      transition: all 0.25s;
+    }
+    .feat-icon-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(0, 200, 83, 0.15);
+      transform: translateY(-4px);
+    }
+    .feat-icon-card .ico {
+      width: 56px; height: 56px; margin: 0 auto 14px;
+      background: rgba(0, 200, 83, 0.12);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+    }
+    .feat-icon-card h4 { font-size: 0.95rem; font-weight: 600; }
+
+    /* FEATURE DETAILS */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: all 0.25s;
+    }
+    .feature-card:hover {
+      border-color: rgba(0, 200, 83, 0.4);
+      box-shadow: 0 0 40px rgba(0, 200, 83, 0.1);
+    }
+    .feature-card .icon {
+      width: 48px; height: 48px;
+      background: rgba(0, 200, 83, 0.12);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 18px;
+    }
+    .feature-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+    .feature-card p { font-size: 0.95rem; color: var(--text-muted); }
+
+    /* MORE LIST */
+    .more-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    }
+    .more-item {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 16px 18px; border-radius: 12px;
+      font-size: 0.92rem; font-weight: 500;
+    }
+    .more-item::before {
+      content: "✓"; color: var(--primary); font-weight: 700; font-size: 1rem;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex; flex-direction: column;
+    }
+    .testimonial-card .quote { font-size: 2rem; color: var(--primary); line-height: 1; margin-bottom: 12px; }
+    .testimonial-card p { font-size: 0.95rem; color: var(--text-muted); flex: 1; margin-bottom: 20px; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-author .avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #00e676);
+      display: flex; align-items: center; justify-content: center;
+      color: #0a0f1a; font-weight: 800; font-size: 0.95rem;
+    }
+    .testimonial-author .name { font-weight: 600; font-size: 0.95rem; }
+    .testimonial-author .role { font-size: 0.8rem; color: var(--text-light); }
+
+    /* PRICING */
+    .pricing {
+      background: radial-gradient(ellipse at 50% 100%, rgba(0, 200, 83, 0.08) 0%, transparent 50%);
+    }
+    .price-card {
+      background: var(--bg-card);
+      border: 2px solid var(--primary);
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 60px rgba(0, 200, 83, 0.15);
+    }
+    .price-card .badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--primary), #00e676);
+      color: #0a0f1a;
+      font-size: 0.75rem; font-weight: 800;
+      padding: 6px 20px; border-radius: 50px;
+      letter-spacing: 0.04em;
+    }
+    .price-card .plan-name {
+      font-size: 1.1rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; margin-top: 8px;
+    }
+    .price-card .price {
+      display: flex; align-items: baseline; justify-content: center; gap: 4px; margin-bottom: 8px;
+    }
+    .price-card .price .currency { font-size: 1.4rem; font-weight: 600; }
+    .price-card .price .amount { font-size: 4rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--primary); }
+    .price-card .price-note {
+      font-size: 0.95rem; color: var(--text-muted); margin-bottom: 28px;
+    }
+    .price-card .price-note strong { color: var(--primary-light); }
+    .price-features {
+      list-style: none; text-align: left; margin-bottom: 32px;
+    }
+    .price-features li {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 0; font-size: 0.95rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li::before { content: "✓"; color: var(--primary); font-weight: 700; }
+    .guarantee {
+      text-align: center; margin-top: 28px; font-size: 0.9rem; color: var(--text-muted);
+    }
+    .guarantee strong { color: var(--text); }
+
+    /* FAQ */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item summary {
+      padding: 20px 0; font-weight: 600; font-size: 1.05rem;
+      cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+"; font-size: 1.4rem; color: var(--primary); font-weight: 400;
+    }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-item .answer {
+      padding: 0 0 20px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;
+    }
+
+    /* CTA FINAL */
+    .cta-final {
+      background: linear-gradient(135deg, #00a844 0%, #00c853 50%, #00e676 100%);
+      color: #0a0f1a; text-align: center; padding: 80px 0;
+    }
+    .cta-final h2 {
+      font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em;
+    }
+    .cta-final p { font-size: 1.15rem; opacity: 0.85; margin-bottom: 32px; }
+    .cta-final .btn-primary {
+      background: #0a0f1a; color: var(--primary);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+    .cta-final .btn-primary:hover {
+      background: #111827; transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060a12; color: var(--text-light);
+      padding: 40px 0; text-align: center; font-size: 0.85rem;
+    }
+    footer p { margin-bottom: 8px; }
+    .disclaimer {
+      max-width: 700px; margin: 16px auto 0;
+      font-size: 0.75rem; line-height: 1.6; color: #475569;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 2.4rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-icons { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .more-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .section-title { font-size: 1.9rem; }
+      .cta-final h2 { font-size: 1.9rem; }
+      .mockup-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 48px 0 60px; }
+      .hero h1 { font-size: 1.9rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas .btn { width: 100%; max-width: 320px; }
+      .more-grid { grid-template-columns: 1fr; }
+      .features-icons { grid-template-columns: 1fr 1fr; }
+      section { padding: 60px 0; }
+      .price-card { padding: 36px 24px; }
+      .price-card .price .amount { font-size: 3.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <div class="logo-icon">Z</div>
+        ZapTurboMAX®
+      </a>
+      <ul class="nav-links">
+        <li><a href="#funcionalidades">Funcionalidades</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#preco">Preço</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
+      <a href="https://pay.kiwify.com.br/FfgS9ac?afid=as80YUOL" class="btn btn-primary" target="_blank" rel="noopener">Comprar Agora!</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span>NOVO</span>
+        Construtor de Fluxos de Chatbots com IA
+      </div>
+      <h1>
+        Única ferramenta com <span class="highlight">IA</span><br>
+        para máxima proteção<br>
+        contra bloqueios
+      </h1>
+      <p class="hero-sub">
+        Dispare milhares de mensagens de forma automática para toda a sua lista de clientes e parceiros — com envio em massa sem se preocupar com bloqueios.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://pay.kiwify.com.br/FfgS9ac?afid=as80YUOL" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          Quero Começar Agora!
+        </a>
+        <a href="#funcionalidades" class="btn btn-outline btn-lg">
+          Ver funcionalidades
+        </a>
+      </div>
+      <div class="hero-benefits">
+        <span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Acesso por 12 meses
+        </span>
+        <span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          7 dias de garantia
+        </span>
+        <span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Pague uma vez
+        </span>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-mockup">
+          <div class="hero-mockup-bar">
+            <div class="dot r"></div>
+            <div class="dot y"></div>
+            <div class="dot g"></div>
+            <div class="title">ZapTurboMAX® — Painel de Controle</div>
+          </div>
+          <div class="mockup-grid">
+            <div class="mockup-item"><div class="ico">🔍</div><div class="lbl">Pesquisar Grupos</div></div>
+            <div class="mockup-item"><div class="ico">🤖</div><div class="lbl">ChatBot IA</div></div>
+            <div class="mockup-item"><div class="ico">🚀</div><div class="lbl">Envio Grupos</div></div>
+            <div class="mockup-item"><div class="ico">📤</div><div class="lbl">Envio em Massa</div></div>
+            <div class="mockup-item"><div class="ico">🎙️</div><div class="lbl">Áudio Gravado</div></div>
+            <div class="mockup-item"><div class="ico">🔘</div><div class="lbl">Envio de Botões</div></div>
+            <div class="mockup-item"><div class="ico">🔥</div><div class="lbl">Maturador</div></div>
+            <div class="mockup-item"><div class="ico">📱</div><div class="lbl">MultiContas</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="number">98%</div>
+          <div class="label">Taxa de Abertura</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">90%</div>
+          <div class="label">Respondem em &lt;10 min</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">+35</div>
+          <div class="label">Funcionalidades</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">12k+</div>
+          <div class="label">Usuários ativos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="funcionalidades">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Funcionalidades exclusivas</span>
+        <h2 class="section-title">Chega de perder tempo com o que pode ser automatizado</h2>
+        <p class="section-desc">
+          Em uma só ferramenta, tudo que você precisa para vender mais e melhor no WhatsApp.
+        </p>
+      </div>
+
+      <div class="features-icons">
+        <div class="feat-icon-card">
+          <div class="ico">🔍</div>
+          <h4>Pesquisa Grupos</h4>
+        </div>
+        <div class="feat-icon-card">
+          <div class="ico">🤖</div>
+          <h4>ChatBot com IA</h4>
+        </div>
+        <div class="feat-icon-card">
+          <div class="ico">🚀</div>
+          <h4>Envio em Grupos</h4>
+        </div>
+        <div class="feat-icon-card">
+          <div class="ico">📤</div>
+          <h4>Envio em Massa</h4>
+        </div>
+        <div class="feat-icon-card">
+          <div class="ico">🎙️</div>
+          <h4>Áudio Gravado</h4>
+        </div>
+        <div class="feat-icon-card">
+          <div class="ico">🔘</div>
+          <h4>Envio de Botões</h4>
+        </div>
+        <div class="feat-icon-card">
+          <div class="ico">🔥</div>
+          <h4>Maturador de Chip</h4>
+        </div>
+        <div class="feat-icon-card">
+          <div class="ico">📱</div>
+          <h4>MultiContas</h4>
+        </div>
+      </div>
+
+      <div class="features-grid" id="recursos">
+        <div class="feature-card">
+          <div class="icon">🔍</div>
+          <h3>Buscador de Grupos</h3>
+          <p>Busque grupos com as palavras-chave do nicho que desejar. O sistema encontra como mágica e entrega os links prontos para você.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⌨️</div>
+          <h3>Simulação de Digitação</h3>
+          <p>O sistema simula um humano digitando. Isso aumenta a efetividade das mensagens e diminui drasticamente o risco de bloqueios.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🎙️</div>
+          <h3>Envio de Áudios Gravados</h3>
+          <p>Envie áudios automaticamente como se fossem gravados na hora. Mais humanizado, mais conversão.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📤</div>
+          <h3>Envios Ilimitados</h3>
+          <p>Envie centenas de mensagens por dia. Faça disparos quando quiser, sem cobranças adicionais e sem limites artificiais.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🖼️</div>
+          <h3>Envio de Mídias</h3>
+          <p>Chega de mensagens sem graça. Envie imagens, vídeos, áudios e arquivos junto com suas campanhas.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔄</div>
+          <h3>Atualizações Online</h3>
+          <p>Única ferramenta do mercado com atualizações periódicas, sempre trazendo novas funcionalidades sem custo extra.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE FEATURES -->
+  <section style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">E muito mais...</span>
+        <h2 class="section-title" style="margin-bottom: 40px;">Tudo incluso no plano anual</h2>
+      </div>
+      <div class="more-grid">
+        <div class="more-item">Envio em Massa</div>
+        <div class="more-item">Envio de Áudios Gravados</div>
+        <div class="more-item">Sistema de Aquecimento</div>
+        <div class="more-item">Integração ChatGPT</div>
+        <div class="more-item">Notificação via Ligação</div>
+        <div class="more-item">Extrator de Grupos</div>
+        <div class="more-item">Envio em Grupos</div>
+        <div class="more-item">Filtro Inteligente</div>
+        <div class="more-item">Pesquisa de Grupos</div>
+        <div class="more-item">Criador de Grupos</div>
+        <div class="more-item">Envio nos Seus Grupos</div>
+        <div class="more-item">Auto-Responder</div>
+        <div class="more-item">Gestão de Grupos</div>
+        <div class="more-item">Maturador de Chip</div>
+        <div class="more-item">MultiContas</div>
+        <div class="more-item">+35 Funcionalidades</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Depoimentos reais</span>
+        <h2 class="section-title">O que dizem quem já usa</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>Ótima ferramenta, fácil de utilizar, executa o processo de captura de forma estável. Em relação ao treinamento só tenho a agradecer pelo conteúdo, muito aplicável no dia a dia. Suporte sem burocracia, atendimento sempre ágil.</p>
+          <div class="testimonial-author">
+            <div class="avatar">R</div>
+            <div>
+              <div class="name">Ricardo Farias</div>
+              <div class="role">Estúdio Century</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>Já testei várias ferramentas, mas essa é a única que me deu resultado rápido. Suporte excelente e fácil de usar. O maturador e a simulação de digitação realmente fazem diferença na proteção do número.</p>
+          <div class="testimonial-author">
+            <div class="avatar">A</div>
+            <div>
+              <div class="name">Agência Pulse</div>
+              <div class="role">Marketing Digital</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>Ferramenta completa. ChatBot com IA, envio em massa, pesquisa de grupos… tudo em um só lugar. Paguei uma vez e uso o ano inteiro. Vale cada centavo.</p>
+          <div class="testimonial-author">
+            <div class="avatar">M</div>
+            <div>
+              <div class="name">Marcos S.</div>
+              <div class="role">Vendedor Digital</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="preco">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Investimento único</span>
+        <h2 class="section-title">Não é mensalidade. Pague uma vez.</h2>
+        <p class="section-desc">
+          Acesso completo por 12 meses. Todas as funcionalidades inclusas. Atualizações grátis.
+        </p>
+      </div>
+
+      <div class="price-card">
+        <div class="badge">PLANO ANUAL</div>
+        <div class="plan-name">Acesso Completo</div>
+        <div class="price">
+          <span class="currency">R$</span>
+          <span class="amount">97</span>
+        </div>
+        <p class="price-note">Utilize por <strong>12 meses</strong><br>Pague uma vez e use o ano inteiro</p>
+        <ul class="price-features">
+          <li>Envio em Massa ilimitado</li>
+          <li>Envio de Áudios Gravados</li>
+          <li>Sistema de Aquecimento</li>
+          <li>Integração ChatGPT / IA</li>
+          <li>Notificação via Ligação</li>
+          <li>Extrator e Pesquisa de Grupos</li>
+          <li>ChatBot + Auto-Responder</li>
+          <li>Maturador de Chip</li>
+          <li>MultiContas</li>
+          <li>+35 Funcionalidades</li>
+          <li>Atualizações grátis</li>
+          <li>Suporte incluso</li>
+        </ul>
+        <a href="https://pay.kiwify.com.br/FfgS9ac?afid=as80YUOL" class="btn btn-primary btn-block btn-lg" target="_blank" rel="noopener">
+          Comprar Agora — R$97
+        </a>
+        <p class="guarantee" style="margin-top: 20px;">
+          <strong>Acesso imediato</strong> após a confirmação do pagamento
+        </p>
+      </div>
+
+      <p class="guarantee">
+        <strong>7 dias de garantia</strong> • Reembolso integral se não gostar<br>
+        Se o programa não funcionar ou por qualquer motivo você quiser desistir, cancela com um clique. Rápido e sem burocracia.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Perguntas frequentes</span>
+        <h2 class="section-title">Tire suas dúvidas</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>É fácil de configurar?</summary>
+          <div class="answer">
+            Sim. Em poucos passos você realiza toda a instalação e ativação. Nossos vídeos tutoriais mostram o passo a passo e permitem que qualquer pessoa configure e comece a usar.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Para qual segmento é recomendado?</summary>
+          <div class="answer">
+            Todos. Negócios físicos ou digitais experimentam excelentes resultados. Consultores, vendedores digitais, vendedores físicos e gestores de tráfego usam a ferramenta diariamente para prospectar e vender mais.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>A ferramenta possui ChatBot?</summary>
+          <div class="answer">
+            Sim. O ZapTurboMAX® é uma das ferramentas mais completas em ChatBot com valor acessível, incluindo integração com IA (ChatGPT) e construtor de fluxos.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Funciona no celular?</summary>
+          <div class="answer">
+            Não. O software foi desenvolvido para computadores com Windows. Recomendamos Windows 8, 8.1, 10 ou superior, com no mínimo 4GB de RAM e conexão de internet de pelo menos 5MB.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Qual a garantia de compra?</summary>
+          <div class="answer">
+            Conforme o Código de Defesa do Consumidor, você tem 7 dias de garantia para desistir da compra caso tenha algum problema. Basta entrar em contato pelo canal oficial de suporte.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Vocês vendem disparos no WhatsApp?</summary>
+          <div class="answer">
+            Não. Comercializamos apenas licenças de uso do software de automação. Todos os envios são realizados diretamente pelos clientes, que devem respeitar as políticas de uso e as leis vigentes.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Comece a vender todos os dias no WhatsApp</h2>
+      <p>Automação inteligente + proteção anti-bloqueio + ChatBot com IA<br>Tudo por apenas R$97 — acesso por 12 meses</p>
+      <a href="https://pay.kiwify.com.br/FfgS9ac?afid=as80YUOL" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+        Garantir meu acesso agora
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 ZapTurboMAX® — Todos os direitos reservados</p>
+      <p>Página de afiliado oficial</p>
+      <div class="disclaimer">
+        * Utilizando a técnica de envios parcelados pela quantidade de contas cadastradas, técnica ensinada em aula gravada disponível na plataforma.<br>
+        Não oferecemos recursos para burlar limitações do WhatsApp. O uso exige consentimento do destinatário e boas práticas.<br><br>
+        O ZapTurboMAX não possui qualquer tipo de vínculo, parceria ou relação com a empresa WhatsApp LLC ou Meta Platforms Inc. É uma ferramenta de automação de mensagens que usa integrações oficiais. Ao utilizar, você aceita os termos de uso.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
