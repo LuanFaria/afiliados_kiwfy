@@ -19,7 +19,6 @@
       --muted: #b3b3b3;
       --dim: #808080;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -29,7 +28,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     /* ========== NETFLIX INTRO ========== */
     #intro {
       position: fixed;
@@ -92,14 +90,12 @@
     @keyframes barFill {
       to { width: 100%; }
     }
-
     /* ========== MAIN CONTENT ========== */
     #app {
       opacity: 0;
       transition: opacity 0.8s ease 0.2s;
     }
     #app.visible { opacity: 1; }
-
     /* NAV */
     .nav {
       position: fixed;
@@ -115,13 +111,11 @@
     .nav.scrolled {
       background: rgba(20,20,20,0.97);
     }
-
     .nav-left {
       display: flex;
       align-items: center;
       gap: 36px;
     }
-
     .logo {
       font-family: 'Bebas Neue', Impact, sans-serif;
       font-size: 2rem;
@@ -130,7 +124,6 @@
       text-decoration: none;
       line-height: 1;
     }
-
     .nav-links {
       display: flex;
       gap: 20px;
@@ -145,13 +138,11 @@
     }
     .nav-links a:hover,
     .nav-links a.active { color: #fff; }
-
     .nav-right {
       display: flex;
       align-items: center;
       gap: 16px;
     }
-
     .profile-btn {
       width: 34px; height: 34px;
       border-radius: 4px;
@@ -171,7 +162,6 @@
       color: #fff;
       line-height: 1;
     }
-
     /* HERO BILLBOARD */
     .billboard {
       position: relative;
@@ -183,7 +173,6 @@
       padding: 0 48px 80px;
       overflow: hidden;
     }
-
     .billboard-bg {
       position: absolute;
       inset: 0;
@@ -193,13 +182,11 @@
         linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 45%, transparent 70%),
         #1a0505;
     }
-
     .billboard-content {
       position: relative;
       z-index: 2;
       max-width: 520px;
     }
-
     .billboard-badge {
       display: inline-block;
       font-size: 0.7rem;
@@ -209,7 +196,6 @@
       color: var(--netflix-red);
       margin-bottom: 12px;
     }
-
     .billboard-title {
       font-family: 'Bebas Neue', Impact, sans-serif;
       font-size: clamp(2.8rem, 7vw, 4.5rem);
@@ -218,7 +204,6 @@
       margin-bottom: 16px;
       text-shadow: 0 4px 30px rgba(0,0,0,0.6);
     }
-
     .billboard-meta {
       display: flex;
       align-items: center;
@@ -235,7 +220,6 @@
       width: 1px; height: 14px;
       background: var(--dim);
     }
-
     .billboard-desc {
       font-size: 1.05rem;
       line-height: 1.55;
@@ -243,13 +227,11 @@
       margin-bottom: 24px;
       max-width: 440px;
     }
-
     .billboard-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -274,7 +256,6 @@
     }
     .btn-info:hover { background: rgba(109,109,110,0.5); }
     .btn svg { width: 22px; height: 22px; fill: currentColor; }
-
     /* ROWS */
     .rows {
       position: relative;
@@ -282,11 +263,9 @@
       margin-top: -40px;
       padding-bottom: 60px;
     }
-
     .row {
       margin-bottom: 36px;
     }
-
     .row-header {
       padding: 0 48px;
       margin-bottom: 12px;
@@ -294,13 +273,11 @@
       align-items: baseline;
       gap: 12px;
     }
-
     .row-title {
       font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: -0.01em;
     }
-
     .row-explore {
       font-size: 0.8rem;
       color: var(--netflix-red);
@@ -310,11 +287,9 @@
       transform: translateX(-6px);
     }
     .row:hover .row-explore { opacity: 1; transform: translateX(0); }
-
     .track-wrap {
       position: relative;
     }
-
     .track {
       display: flex;
       gap: 6px;
@@ -328,7 +303,6 @@
     }
     .track::-webkit-scrollbar { display: none; }
     .track:active { cursor: grabbing; }
-
     .track-nav {
       position: absolute;
       top: 0; bottom: 16px;
@@ -355,7 +329,6 @@
       background: linear-gradient(-90deg, rgba(0,0,0,0.8) 0%, transparent 100%);
     }
     .track-nav:hover { color: var(--netflix-red); }
-
     /* CARD — Netflix style */
     .card {
       flex: 0 0 240px;
@@ -369,14 +342,12 @@
       transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       transform-origin: center center;
     }
-
     .card:hover {
       transform: scale(1.35);
       z-index: 20;
       box-shadow: 0 8px 40px rgba(0,0,0,0.8);
       border-radius: 6px;
     }
-
     .card-img {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -384,51 +355,24 @@
       overflow: hidden;
       background: #222;
     }
-
     .card-img img {
       width: 100%; height: 100%;
       object-fit: cover;
       display: block;
     }
-
-    /* Placeholder gradients */
-    .grad-fc { background: linear-gradient(145deg, #3a1010 0%, #1a0808 60%, #0d0404 100%); }
-    .grad-pack { background: linear-gradient(145deg, #2a1018 0%, #14080c 60%, #0a0406 100%); }
-    .grad-lumi { background: linear-gradient(145deg, #2a0e1a 0%, #14070e 60%, #0a0408 100%); }
-    .grad-autoral { background: linear-gradient(145deg, #1a1210 0%, #0e0a08 60%, #080604 100%); }
-    .grad-precify { background: linear-gradient(145deg, #1a0e18 0%, #0e070c 60%, #080406 100%); }
-    .grad-zap { background: linear-gradient(145deg, #101a12 0%, #080e0a 60%, #040806 100%); }
-
-    .card-img-inner {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 6px;
-    }
-    .card-img-inner .ico { font-size: 2.4rem; }
-    .card-img-inner .lbl {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-    }
-
-    /* Hover panel (Netflix style expand info) */
+    /* Hover panel */
     .card-hover {
       display: none;
       padding: 12px 12px 14px;
       background: #181818;
     }
     .card:hover .card-hover { display: block; }
-
     .card-hover-actions {
       display: flex;
       align-items: center;
       gap: 8px;
       margin-bottom: 10px;
     }
-
     .ch-btn {
       width: 32px; height: 32px;
       border-radius: 50%;
@@ -447,7 +391,6 @@
       color: #000;
     }
     .ch-btn.play:hover { background: rgba(255,255,255,0.85); }
-
     .card-hover-meta {
       display: flex;
       align-items: center;
@@ -464,19 +407,16 @@
       font-size: 0.65rem;
       color: var(--muted);
     }
-
     .card-hover-title {
       font-size: 0.9rem;
       font-weight: 700;
       margin-bottom: 4px;
     }
-
     .card-hover-desc {
       font-size: 0.75rem;
       color: var(--muted);
       line-height: 1.4;
     }
-
     .card-hover-tags {
       display: flex;
       flex-wrap: wrap;
@@ -492,8 +432,6 @@
       color: var(--dim);
     }
     .card-hover-tags span:last-child::after { content: ''; }
-
-    /* Title under card (visible when not hovered, Netflix sometimes shows) */
     .card-label {
       padding: 8px 4px 0;
       font-size: 0.85rem;
@@ -505,7 +443,6 @@
       transition: color 0.2s;
     }
     .card:hover .card-label { color: #fff; }
-
     /* FOOTER */
     footer {
       padding: 40px 48px 60px;
@@ -516,7 +453,6 @@
       font-size: 0.8rem;
       color: var(--dim);
     }
-
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .nav { padding: 12px 20px; }
@@ -536,15 +472,12 @@
   </style>
 </head>
 <body>
-
   <!-- NETFLIX-STYLE INTRO -->
   <div id="intro">
     <div class="intro-l">L</div>
     <div class="intro-sound-bar"></div>
   </div>
-
   <div id="app">
-
     <!-- NAV -->
     <nav class="nav" id="nav">
       <div class="nav-left">
@@ -562,7 +495,6 @@
         </button>
       </div>
     </nav>
-
     <!-- BILLBOARD / HERO -->
     <section class="billboard">
       <div class="billboard-bg"></div>
@@ -591,10 +523,8 @@
         </div>
       </div>
     </section>
-
     <!-- ROWS -->
     <div class="rows">
-
       <!-- DESTAQUES -->
       <div class="row" id="destaques">
         <div class="row-header">
@@ -604,14 +534,10 @@
         <div class="track-wrap">
           <button class="track-nav prev" onclick="scrollTrack(this,-1)" aria-label="Anterior">‹</button>
           <div class="track">
-
+            <!-- Fábrica de Comissões -->
             <a class="card" href="https://luvics.com.br/fabrica_de_comissoes/" target="_blank" rel="noopener">
-              <div class="card-img grad-fc">
-                <!-- <img src="fotos/fabrica.jpg" alt="Fábrica de Comissões"> -->
-                <div class="card-img-inner">
-                  <div class="ico">⚙️</div>
-                  <div class="lbl">Método</div>
-                </div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/fabrica.png" alt="Fábrica de Comissões">
               </div>
               <div class="card-label">Fábrica de Comissões</div>
               <div class="card-hover">
@@ -632,13 +558,10 @@
                 </div>
               </div>
             </a>
-
+            <!-- LUMI -->
             <a class="card" href="https://luvics.com.br/lumi" target="_blank" rel="noopener">
-              <div class="card-img grad-lumi">
-                <div class="card-img-inner">
-                  <div class="ico">✦</div>
-                  <div class="lbl">Automação</div>
-                </div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/lumi.png" alt="LUMI">
               </div>
               <div class="card-label">LUMI</div>
               <div class="card-hover">
@@ -659,13 +582,10 @@
                 </div>
               </div>
             </a>
-
+            <!-- Precify -->
             <a class="card" href="https://luvics.com.br/precify-vendas/" target="_blank" rel="noopener">
-              <div class="card-img grad-precify">
-                <div class="card-img-inner">
-                  <div class="ico">📊</div>
-                  <div class="lbl">Gestão</div>
-                </div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/preci.png" alt="Precify">
               </div>
               <div class="card-label">Precify</div>
               <div class="card-hover">
@@ -686,13 +606,10 @@
                 </div>
               </div>
             </a>
-
+            <!-- ZapTurboMAX -->
             <a class="card" href="https://luvics.com.br/zapturbomax/" target="_blank" rel="noopener">
-              <div class="card-img grad-zap">
-                <div class="card-img-inner">
-                  <div class="ico">⚡</div>
-                  <div class="lbl">WhatsApp</div>
-                </div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/zap.png" alt="ZapTurboMAX">
               </div>
               <div class="card-label">ZapTurboMAX</div>
               <div class="card-hover">
@@ -713,13 +630,10 @@
                 </div>
               </div>
             </a>
-
+            <!-- Pack FC -->
             <a class="card" href="https://luvics.com.br/pack_fc" target="_blank" rel="noopener">
-              <div class="card-img grad-pack">
-                <div class="card-img-inner">
-                  <div class="ico">📦</div>
-                  <div class="lbl">Pack</div>
-                </div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/pack.png" alt="Pack FC">
               </div>
               <div class="card-label">Pack FC</div>
               <div class="card-hover">
@@ -740,13 +654,10 @@
                 </div>
               </div>
             </a>
-
+            <!-- Pack Autoral -->
             <a class="card" href="https://luvics.com.br/pack_autoral" target="_blank" rel="noopener">
-              <div class="card-img grad-autoral">
-                <div class="card-img-inner">
-                  <div class="ico">🎬</div>
-                  <div class="lbl">Autoral</div>
-                </div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/pack%20autoral.png" alt="Pack Autoral">
               </div>
               <div class="card-label">Pack Autoral</div>
               <div class="card-hover">
@@ -767,12 +678,34 @@
                 </div>
               </div>
             </a>
-
+            <!-- PRATINHO (NOVO) -->
+            <a class="card" href="https://luvics.com.br/pratinho/" target="_blank" rel="noopener">
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/receitas.png" alt="Luvics Pratinho">
+              </div>
+              <div class="card-label">Pratinho</div>
+              <div class="card-hover">
+                <div class="card-hover-actions">
+                  <div class="ch-btn play">▶</div>
+                  <div class="ch-btn">＋</div>
+                  <div class="ch-btn">👍</div>
+                </div>
+                <div class="card-hover-meta">
+                  <span class="match">97% Match</span>
+                  <span class="year">2026</span>
+                  <span class="badge-hd">HD</span>
+                </div>
+                <div class="card-hover-title">Luvics Pratinho</div>
+                <div class="card-hover-desc">+101 receitas + guia “Meu Bebê Não Quer Comer?”. Introdução alimentar sem estresse.</div>
+                <div class="card-hover-tags">
+                  <span>Receitas</span><span>Bebê</span><span>Alimentação</span>
+                </div>
+              </div>
+            </a>
           </div>
           <button class="track-nav next" onclick="scrollTrack(this,1)" aria-label="Próximo">›</button>
         </div>
       </div>
-
       <!-- PACKS -->
       <div class="row" id="packs">
         <div class="row-header">
@@ -782,10 +715,9 @@
         <div class="track-wrap">
           <button class="track-nav prev" onclick="scrollTrack(this,-1)" aria-label="Anterior">‹</button>
           <div class="track">
-
             <a class="card" href="https://luvics.com.br/pack_fc" target="_blank" rel="noopener">
-              <div class="card-img grad-pack">
-                <div class="card-img-inner"><div class="ico">📦</div><div class="lbl">Pack FC</div></div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/pack.png" alt="Pack FC">
               </div>
               <div class="card-label">Pack FC</div>
               <div class="card-hover">
@@ -796,10 +728,9 @@
                 <div class="card-hover-tags"><span>Pack</span><span>Stories</span><span>Vídeos</span></div>
               </div>
             </a>
-
             <a class="card" href="https://luvics.com.br/pack_autoral" target="_blank" rel="noopener">
-              <div class="card-img grad-autoral">
-                <div class="card-img-inner"><div class="ico">🎬</div><div class="lbl">Autoral</div></div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/pack%20autoral.png" alt="Pack Autoral">
               </div>
               <div class="card-label">Pack Autoral</div>
               <div class="card-hover">
@@ -810,10 +741,22 @@
                 <div class="card-hover-tags"><span>Pack</span><span>Orgânico</span><span>Pago</span></div>
               </div>
             </a>
-
+            <a class="card" href="https://luvics.com.br/pratinho/" target="_blank" rel="noopener">
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/receitas.png" alt="Luvics Pratinho">
+              </div>
+              <div class="card-label">Pratinho</div>
+              <div class="card-hover">
+                <div class="card-hover-actions"><div class="ch-btn play">▶</div><div class="ch-btn">＋</div><div class="ch-btn">👍</div></div>
+                <div class="card-hover-meta"><span class="match">97% Match</span><span class="year">2026</span><span class="badge-hd">HD</span></div>
+                <div class="card-hover-title">Luvics Pratinho</div>
+                <div class="card-hover-desc">+101 receitas + guia completo de introdução alimentar.</div>
+                <div class="card-hover-tags"><span>Receitas</span><span>Bebê</span><span>Guia</span></div>
+              </div>
+            </a>
             <a class="card" href="https://luvics.com.br/fabrica_de_comissoes/" target="_blank" rel="noopener">
-              <div class="card-img grad-fc">
-                <div class="card-img-inner"><div class="ico">⚙️</div><div class="lbl">Método</div></div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/fabrica.png" alt="Fábrica de Comissões">
               </div>
               <div class="card-label">Fábrica de Comissões</div>
               <div class="card-hover">
@@ -824,26 +767,10 @@
                 <div class="card-hover-tags"><span>Curso</span><span>Vendas</span><span>Marketplace</span></div>
               </div>
             </a>
-
-            <a class="card" href="https://luvics.com.br/lumi" target="_blank" rel="noopener">
-              <div class="card-img grad-lumi">
-                <div class="card-img-inner"><div class="ico">✦</div><div class="lbl">LUMI</div></div>
-              </div>
-              <div class="card-label">LUMI</div>
-              <div class="card-hover">
-                <div class="card-hover-actions"><div class="ch-btn play">▶</div><div class="ch-btn">＋</div><div class="ch-btn">👍</div></div>
-                <div class="card-hover-meta"><span class="match">95% Match</span><span class="year">2026</span><span class="badge-hd">HD</span></div>
-                <div class="card-hover-title">LUMI</div>
-                <div class="card-hover-desc">Automação de ofertas com inteligência artificial.</div>
-                <div class="card-hover-tags"><span>IA</span><span>Ofertas</span><span>Grupos</span></div>
-              </div>
-            </a>
-
           </div>
           <button class="track-nav next" onclick="scrollTrack(this,1)" aria-label="Próximo">›</button>
         </div>
       </div>
-
       <!-- FERRAMENTAS -->
       <div class="row" id="ferramentas">
         <div class="row-header">
@@ -853,10 +780,9 @@
         <div class="track-wrap">
           <button class="track-nav prev" onclick="scrollTrack(this,-1)" aria-label="Anterior">‹</button>
           <div class="track">
-
             <a class="card" href="https://luvics.com.br/precify-vendas/" target="_blank" rel="noopener">
-              <div class="card-img grad-precify">
-                <div class="card-img-inner"><div class="ico">📊</div><div class="lbl">Precify</div></div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/preci.png" alt="Precify">
               </div>
               <div class="card-label">Precify</div>
               <div class="card-hover">
@@ -867,10 +793,9 @@
                 <div class="card-hover-tags"><span>Sistema</span><span>Gestão</span><span>Lucro</span></div>
               </div>
             </a>
-
             <a class="card" href="https://luvics.com.br/zapturbomax/" target="_blank" rel="noopener">
-              <div class="card-img grad-zap">
-                <div class="card-img-inner"><div class="ico">⚡</div><div class="lbl">ZapTurbo</div></div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/zap.png" alt="ZapTurboMAX">
               </div>
               <div class="card-label">ZapTurboMAX</div>
               <div class="card-hover">
@@ -881,10 +806,9 @@
                 <div class="card-hover-tags"><span>WhatsApp</span><span>IA</span><span>Automação</span></div>
               </div>
             </a>
-
             <a class="card" href="https://luvics.com.br/lumi" target="_blank" rel="noopener">
-              <div class="card-img grad-lumi">
-                <div class="card-img-inner"><div class="ico">✦</div><div class="lbl">LUMI</div></div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/lumi.png" alt="LUMI">
               </div>
               <div class="card-label">LUMI</div>
               <div class="card-hover">
@@ -895,10 +819,9 @@
                 <div class="card-hover-tags"><span>IA</span><span>Ofertas</span><span>Grupos</span></div>
               </div>
             </a>
-
             <a class="card" href="https://luvics.com.br/fabrica_de_comissoes/" target="_blank" rel="noopener">
-              <div class="card-img grad-fc">
-                <div class="card-img-inner"><div class="ico">⚙️</div><div class="lbl">Método</div></div>
+              <div class="card-img">
+                <img src="https://raw.githubusercontent.com/LuanFaria/afiliados_kiwfy/main/imagens/fabrica.png" alt="Fábrica de Comissões">
               </div>
               <div class="card-label">Fábrica de Comissões</div>
               <div class="card-hover">
@@ -909,39 +832,27 @@
                 <div class="card-hover-tags"><span>Curso</span><span>Marketplace</span><span>Vendas</span></div>
               </div>
             </a>
-
           </div>
           <button class="track-nav next" onclick="scrollTrack(this,1)" aria-label="Próximo">›</button>
         </div>
       </div>
-
     </div>
-
     <footer>
       <p>© 2026 Tech Luvics</p>
     </footer>
-
   </div>
-
   <script>
-    // Intro
     setTimeout(() => {
       document.getElementById('intro').classList.add('done');
       document.getElementById('app').classList.add('visible');
     }, 2600);
-
-    // Nav scroll
     window.addEventListener('scroll', () => {
       document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
     });
-
-    // Track scroll
     function scrollTrack(btn, dir) {
       const track = btn.closest('.track-wrap').querySelector('.track');
       track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: 'smooth' });
     }
-
-    // Drag scroll
     document.querySelectorAll('.track').forEach(track => {
       let down = false, startX, scrollLeft;
       track.addEventListener('mousedown', e => {
@@ -958,6 +869,5 @@
       });
     });
   </script>
-
 </body>
 </html>
